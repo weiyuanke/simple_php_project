@@ -97,3 +97,8 @@ function rcut($str, $sub)
 {
     return (strrpos($str, $sub) === strlen($str) - strlen($sub)) ? substr($str, 0, strlen($str) - strlen($sub)) : $str;
 }
+
+function die_add_header($result)
+{
+    die(json_encode($result));
+}

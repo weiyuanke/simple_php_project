@@ -11,6 +11,8 @@ define('SUCCESS_CODE',                          0);
 define('ERROR_CODE',                            -1);
 define('ERROR_CODE_NOT_A_JSON',                 13);
 define('ERROR_CODE_MYSQL',                      21);
+define('ERROR_CODE_PARAM',                      10);
+define('ERROR_CODE_PERMISSION_DENIED',          14);
 
 /*** email ***/
 define('WEIYUANKE_EMAIL',                       'weiyuanke123@gmail.com');
