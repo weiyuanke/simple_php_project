@@ -87,3 +87,13 @@ function access_log()
     
     return sprintf('%s?%s "%s" "%s" "%s" "%s"', $url, $query, $postdata, $agent, ip(), $cookie);
 }
+
+function lcut($str, $sub)
+{
+    return (strpos($str, $sub) === 0)  ? substr($str, strlen($sub)) : $str;
+}
+
+function rcut($str, $sub)
+{
+    return (strrpos($str, $sub) === strlen($str) - strlen($sub)) ? substr($str, 0, strlen($str) - strlen($sub)) : $str;
+}

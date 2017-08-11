@@ -1,9 +1,12 @@
 <?php
 
 require_once '../base/ActionBase.php';
+require_once '../dao/UserDao.php';
 
 class TestAction extends ActionBase
 {
+    private $userdao;
+    
     public function __construct($init_degradation = false)
     {
         parent::__construct();
@@ -11,6 +14,7 @@ class TestAction extends ActionBase
         {
             $this->degradation_level = $init_degradation;
         }
+        $this->userdao = new UserDao();
     }
 
     protected function contact()
@@ -20,6 +24,15 @@ class TestAction extends ActionBase
 
     protected function execute()
     {
+        $result = array(
+            'status' => SUCCESS_STATUS, 'code' => SUCCESS_CODE
+        );
+        
+        $all = $this->userdao->get_all_users();
+        $result['result'] = $all;
+        return $result;
+        
+        
         if ($this->degradation_level === SERVICE_DEGRADATION_NORMAL)
         {
             return array(
